@@ -1,37 +1,42 @@
-<div class="container">
-  <div class="py-5 text-center">
-    <h2>Pet Manager</h2>
+<div *ngIf="showAppContent" class="homepage">
+  <div class="container">
+    <div class="py-5 text-center">
+      <h2>Pet Manager</h2>
+    </div>
+    <a routerLink="/addpetpage" id="addPet" class="btn btn-primary">Add pet</a>
+
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Type</th>
+            <th scope="col">Fur color</th>
+            <th scope="col">Country</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let pet of pets">
+          <tr>
+            <th scope="row"></th>
+            <td>{{ pet.petName }}</td>
+            <td>{{ pet.code }}</td>
+            <td>{{ pet.petType }}</td>
+            <td>{{ pet.furColor }}</td>
+            <td>{{ pet.country }}</td>
+            <td>
+              <a href="edit.html" class="btn btn-primary">Edit pet</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <a href="#" id="addPet" class="btn btn-primary">Add pet</a>
-  <div class="row">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Code</th>
-          <th scope="col">Type</th>
-          <th scope="col">Fur color</th>
-          <th scope="col">Country</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let pet of pets">
-        <tr>
-          <th scope="row"></th>
-          <td>{{pet.petName}}</td>
-          <td>{{pet.code}}</td>
-          <td>{{pet.petType}}</td>
-          <td>{{pet.furColor}}</td>
-          <td>{{pet.country}}</td>
-          <td>
-            <a href="edit.html" class="btn btn-primary">Edit pet</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2023 Wisercat</p>
+  </footer>
 </div>
-<footer class="my-5 pt-5 text-muted text-center text-small">
-  <p class="mb-1">&copy; 2023 Wisercat</p>
-</footer>
+<router-outlet></router-outlet>
+
